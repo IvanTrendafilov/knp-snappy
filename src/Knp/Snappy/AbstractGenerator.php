@@ -348,6 +348,9 @@ abstract class AbstractGenerator implements GeneratorInterface
             if (preg_match('/Exit with code 1 due to network error: ProtocolUnknownError/', $stderr)) {
               return;
             }
+            if (preg_match('/Exit with code 1 due to network error: UnknownNetworkError/', $stderr)) {
+              return;
+            }
             throw new \RuntimeException(sprintf(
                 'The exit status code \'%s\' says something went wrong:'."\n"
                 .'stderr: "%s"'."\n"
