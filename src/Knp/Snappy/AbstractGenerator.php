@@ -339,6 +339,9 @@ abstract class AbstractGenerator implements GeneratorInterface
             if (preg_match('/Exit with code 1 due to network error: UnknownContentError/', $stderr)) {
               return;
             }
+            if (preg_match('/Exit with code 1 due to network error: HostNotFoundError/', $stderr)) {
+              return;
+            }
             if (preg_match('/Exit with code 1 due to network error: ContentNotFoundError/', $stderr)) {
               return;
             }
